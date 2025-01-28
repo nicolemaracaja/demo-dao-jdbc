@@ -30,11 +30,17 @@ public class Program2 {
 			System.out.println(dep);
 		}
 		
-		System.out.println("\n===TESTE 4: department delete ===");
+		/*System.out.println("\n===TESTE 4: department delete ===");
 		System.out.println("Enter id for delete test: ");
 		int id = sc.nextInt();
 		departmentDao.deleteById(id);
-		System.out.println("Delete completed!");
+		System.out.println("Delete completed!");*/
+		
+		System.out.println("\n===TESTE 5: department update ===");
+		Department newDepartment = departmentDao.findById(1);
+		newDepartment.setName("Animals");
+		departmentDao.update(newDepartment);
+		System.out.println("Update completed");
 		
 		sc.close();
 	}

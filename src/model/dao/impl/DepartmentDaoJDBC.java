@@ -68,6 +68,7 @@ public class DepartmentDaoJDBC implements DepartmentDao{
 					+ "WHERE Id = ?");
 			
 			st.setString(1, obj.getName());
+			st.setInt(2, obj.getId());
 			
 			st.executeUpdate();
 		}
