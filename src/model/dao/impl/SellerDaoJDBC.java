@@ -18,6 +18,7 @@ import model.entities.Seller;
 
 public class SellerDaoJDBC implements SellerDao{
 
+	//conexão com o banco de dados
 	private Connection conn;
 	
 	public SellerDaoJDBC(Connection conn) {
@@ -26,6 +27,7 @@ public class SellerDaoJDBC implements SellerDao{
 	
 	@Override
 	public void insert(Seller obj) {
+		//interface da API JDBC usada para executar comandos SQL
 		PreparedStatement st = null;
 		try {
 			st = conn.prepareStatement(
@@ -41,6 +43,7 @@ public class SellerDaoJDBC implements SellerDao{
 			st.setDouble(4, obj.getBaseSalary());
 			st.setInt(5, obj.getDepartment().getId());
 			
+			//executa os comandos SQL(retorna o num de linhas afetadas)
 			int rowsAffected = st.executeUpdate();
 			
 			if (rowsAffected > 0) {
@@ -116,6 +119,7 @@ public class SellerDaoJDBC implements SellerDao{
 	@Override
 	public Seller findById(Integer id) {
 		PreparedStatement st = null;
+		//resultado de uma consulta SQL
 		ResultSet rs = null;
 		try {
 			st = conn.prepareStatement(
